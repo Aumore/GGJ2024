@@ -42,7 +42,7 @@ public class SuperBall : MonoBehaviour
 
     protected virtual void superPower()
     {
-        // Default implementation (if any)
+        // Default implementation
     }
 
 }

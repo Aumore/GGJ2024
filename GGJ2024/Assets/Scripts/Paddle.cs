@@ -27,26 +27,32 @@ public class Paddle : MonoBehaviour
     
     // Update is called once per frame
     void Update()
-    {
+    {        
         if (isPlayer1)
         {
             movement = Input.GetAxisRaw("Vertical");
+            if (isReversed) {
+                Debug.Log("Reversed");
+                movement = -1; 
+            }
             Move(movement);
         }
         else if (isPlayer2)
         {
             movement = Input.GetAxisRaw("Vertical2");
+                       if (isReversed) {
+                Debug.Log("Reversed");
+                movement = -1; 
+            }
             Move(movement);
         }
         else if (isAI)
         {
             MoveAI();
         }
-        if (isReversed) {
-            Debug.Log("Reversed");
-            movement *= -1;
-        } 
-        rb.velocity = new Vector2(rb.velocity.x, movement * speed);
+
+
+        // rb.velocity = new Vector2(rb.velocity.x, movement * speed);
     }
 
     public void Reset()

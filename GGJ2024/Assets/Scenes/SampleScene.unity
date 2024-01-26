@@ -162,9 +162,10 @@ MonoBehaviour:
   rb: {fileID: 168652127}
   startPosition: {x: 0, y: 0, z: 0}
   ballScript: {fileID: 2118809806}
+  isReversed: 0
   aiDeadzone: 1
   aiMoveSpeedMultiplierMin: 0.5
-  aiMoveSpeedMultiplierMax: 1
+  aiMoveSpeedMultiplierMax: 1.5
 --- !u!50 &168652127
 Rigidbody2D:
   serializedVersion: 4
@@ -1400,6 +1401,7 @@ MonoBehaviour:
   rb: {fileID: 2003474982}
   startPosition: {x: 0, y: 0, z: 0}
   ballScript: {fileID: 2118809806}
+  isReversed: 0
   aiDeadzone: 1
   aiMoveSpeedMultiplierMin: 0.5
   aiMoveSpeedMultiplierMax: 1.5
