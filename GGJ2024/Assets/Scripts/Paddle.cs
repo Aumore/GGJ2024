@@ -8,13 +8,13 @@ public class Paddle : MonoBehaviour
     public float speed;
     public Rigidbody2D rb;
     public Vector3 startPosition;
-    
+    public bool isReversed;
     private float movement;
     
     void Start() {
         startPosition = transform.position;
     }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -25,6 +25,11 @@ public class Paddle : MonoBehaviour
             movement = Input.GetAxisRaw("Vertical2");
         }
 
+        if (isReversed) {
+            Debug.Log("Reversed");
+            movement *= -1;
+        } 
+        
         rb.velocity = new Vector2(rb.velocity.x, movement * speed);
     }
 
