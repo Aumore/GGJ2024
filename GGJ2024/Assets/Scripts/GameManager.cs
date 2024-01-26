@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
+
     [Header("Ball")]
     public GameObject ball;
 
@@ -22,6 +24,18 @@ public class GameManager : MonoBehaviour
 
     private int player1Score;
     private int player2Score;
+
+    private void Awake()
+    {
+        if (instance)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
 
     public void Player1Scored() {
         player1Score++;

@@ -156,9 +156,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer1: 0
+  isPlayer2: 0
+  isAI: 1
   speed: 5
   rb: {fileID: 168652127}
   startPosition: {x: 0, y: 0, z: 0}
+  ballScript: {fileID: 2118809806}
+  aiDeadzone: 1
+  aiMoveSpeedMultiplierMin: 0.5
+  aiMoveSpeedMultiplierMax: 1
 --- !u!50 &168652127
 Rigidbody2D:
   serializedVersion: 4
@@ -1388,9 +1394,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer1: 1
+  isPlayer2: 0
+  isAI: 0
   speed: 5
   rb: {fileID: 2003474982}
   startPosition: {x: 0, y: 0, z: 0}
+  ballScript: {fileID: 2118809806}
+  aiDeadzone: 1
+  aiMoveSpeedMultiplierMin: 0.5
+  aiMoveSpeedMultiplierMax: 1.5
 --- !u!50 &2003474982
 Rigidbody2D:
   serializedVersion: 4
