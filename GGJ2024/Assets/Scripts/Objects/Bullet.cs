@@ -24,7 +24,7 @@ public class Bullet : MonoBehaviour
             paddleScript.isHit = true;
         }
         Destroy(gameObject);
-        GameObject Gunman = GameObject.Find("Gunman");
+        GameObject Gunman = GameObject.Find("Paddle1");
         Gunman gunmanScript = Gunman.GetComponent<Gunman>();
         gunmanScript.bulletNumber++;
     }

@@ -6,7 +6,7 @@ public class Block : MonoBehaviour
 {
     void OnCollisionEnter2D(Collision2D collision2D)
     {
-        GameObject Blockman = GameObject.Find("MCPaddle");
+        GameObject Blockman = GameObject.Find("Paddle1");
         Blockman blockmanScript = Blockman.GetComponent<Blockman>();
         Debug.Log("Collision detected with " + collision2D.gameObject.name);
         if (collision2D.gameObject.CompareTag("Ball"))

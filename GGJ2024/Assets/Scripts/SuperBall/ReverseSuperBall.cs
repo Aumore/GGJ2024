@@ -17,7 +17,7 @@ public class ReverseSuperBall : SuperBall
     protected override void superBallAbility()
     {
         // Reverse the paddle
-        GameObject paddle = GameObject.Find("MCPaddle"); // TODO: HARD CODED
+        GameObject paddle = GameObject.Find("Paddle1"); // TODO: HARD CODED
         GameObject paddle2 = GameObject.Find("Paddle2");
         Paddle paddleScript = paddle.GetComponent<Paddle>();
         Paddle paddleScript2 = paddle2.GetComponent<Paddle>();
