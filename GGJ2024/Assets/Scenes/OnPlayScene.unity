@@ -161,6 +161,7 @@ MonoBehaviour:
   startPosition: {x: 0, y: 0, z: 0}
   ballScript: {fileID: 2118809806}
   isReversed: 0
+  timeToStop: 0
   aiDeadzone: 1
   aiMoveSpeedMultiplierMin: 0.5
   aiMoveSpeedMultiplierMax: 1.5
@@ -1262,6 +1263,7 @@ MonoBehaviour:
   startPosition: {x: 0, y: 0, z: 0}
   ballScript: {fileID: 2118809806}
   isReversed: 0
+  timeToStop: 10
   aiDeadzone: 1
   aiMoveSpeedMultiplierMin: 0.5
   aiMoveSpeedMultiplierMax: 1.5
@@ -1949,6 +1951,7 @@ MonoBehaviour:
   startPosition: {x: 0, y: 0, z: 0}
   ballScript: {fileID: 2118809806}
   isReversed: 0
+  timeToStop: 0
   aiDeadzone: 1
   aiMoveSpeedMultiplierMin: 0.5
   aiMoveSpeedMultiplierMax: 1.5

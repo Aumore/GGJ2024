@@ -20,6 +20,7 @@ public class Paddle : MonoBehaviour
     public bool isReversed;
     protected float movement;
     protected float moveSpeedMultiplier = 1f;
+    public float timeToStop;
 
     [Header("AI")]
     public float aiDeadzone = 1f;
@@ -48,6 +49,10 @@ public class Paddle : MonoBehaviour
         }
 
         ActivateAbility();
+
+        if (isReversed) {
+            ReverseCountDown();
+        }
     }
 
    private void HandlePlayerInput(string axis)
@@ -83,11 +88,12 @@ public class Paddle : MonoBehaviour
         Move(direction);
     }
 
-    protected void ReverseCountDown(int timeToStop)
+    protected void ReverseCountDown()
     {
-        timeToStop--;
-        if (timeToStop == 0) {
+        timeToStop -= Time.deltaTime;
+        if (timeToStop < 0) {
             isReversed = false;
+            timeToStop = 10; //hard code time for ReverseCountDown
         }
     }
 
