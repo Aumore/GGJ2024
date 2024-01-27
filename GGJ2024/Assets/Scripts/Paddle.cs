@@ -26,9 +26,10 @@ public class Paddle : MonoBehaviour
     public float aiDeadzone = 1f;
     public float aiMoveSpeedMultiplierMin = 0.5f, aiMoveSpeedMultiplierMax = 1.5f;
     protected int direction = 0;
-
+    protected float hitTime;
     public bool isShrinked;
     public int shrinkTime;
+    public bool isHit;
     
     void Start()
     {
@@ -94,6 +95,21 @@ public class Paddle : MonoBehaviour
         }
 
         Move(direction);
+    }
+
+    protected void getHit()
+    {
+        moveSpeedMultiplier *= 0.5f;
+    }
+
+    protected void HitCountDown()
+    {
+        timeToStop -= Time.deltaTime;
+        if (timeToStop < 0) {
+            isHit = false;
+            timeToStop = 10; //hard code time for ReverseCountDown
+            moveSpeedMultiplier = 1f;
+        }
     }
 
     protected void ReverseCountDown()
