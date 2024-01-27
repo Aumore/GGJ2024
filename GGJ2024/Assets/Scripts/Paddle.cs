@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Jobs;
 using UnityEngine;
 
 public enum PaddleControl
@@ -9,7 +10,6 @@ public enum PaddleControl
     AI
 }
 
-
 public class Paddle : MonoBehaviour
 {
     public PaddleControl controlState;
@@ -17,18 +17,21 @@ public class Paddle : MonoBehaviour
     public Rigidbody2D rb;
     public Vector3 startPosition;
     public Ball ballScript;
-    public bool isReversed;
     protected float movement;
     protected float moveSpeedMultiplier = 1f;
-    public float timeToStop;
 
     [Header("AI")]
     public float aiDeadzone = 1f;
     public float aiMoveSpeedMultiplierMin = 0.5f, aiMoveSpeedMultiplierMax = 1.5f;
     protected int direction = 0;
-    protected float hitTime;
+
+    [Header("Special Effect")]
+    public bool isReversed;
+    public float timeToStop;
+    public float hitTime;
     public bool isShrinked;
     public int shrinkTime;
+    public int hitCheck;
     public bool isHit;
     
     void Start()
@@ -61,6 +64,10 @@ public class Paddle : MonoBehaviour
 
         if (isShrinked) {
             ShrinkCountDown();
+        }
+
+        if (isHit) {
+            HitCountDown();
         }
     }
 
@@ -99,18 +106,29 @@ public class Paddle : MonoBehaviour
 
     protected void getHit()
     {
-        moveSpeedMultiplier *= 0.5f;
+        if (isHit){
+            speed /= 2;
+        } else if (!isHit) {
+            speed *= 2;
+        }
     }
 
     protected void HitCountDown()
     {
-        timeToStop -= Time.deltaTime;
-        if (timeToStop < 0) {
+        if (hitCheck == 0) {
+            getHit();
+            hitCheck = 1;
+        }
+
+        hitTime -= Time.deltaTime;
+        if (hitTime < 0) {
             isHit = false;
-            timeToStop = 10; //hard code time for ReverseCountDown
-            moveSpeedMultiplier = 1f;
+            hitTime = 10; //hard code time for ReverseCountDown
+            getHit();
+            hitCheck = 0;
         }
     }
+
 
     protected void ReverseCountDown()
     {

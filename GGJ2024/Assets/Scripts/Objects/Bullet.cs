@@ -17,6 +17,12 @@ public class Bullet : MonoBehaviour
    void OnTriggerEnter2D(Collider2D collision2D)
    {
         Debug.Log("Bullet Triggered with " + collision2D.gameObject.name);
+        if (collision2D.gameObject.CompareTag("Paddle2"))
+        {
+            GameObject Paddle2 = GameObject.Find("Paddle2");
+            Paddle paddleScript = Paddle2.GetComponent<Paddle>();
+            paddleScript.isHit = true;
+        }
         Destroy(gameObject);
         GameObject Gunman = GameObject.Find("Gunman");
         Gunman gunmanScript = Gunman.GetComponent<Gunman>();
