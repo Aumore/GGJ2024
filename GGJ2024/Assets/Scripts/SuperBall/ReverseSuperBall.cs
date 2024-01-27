@@ -8,7 +8,7 @@ public class ReverseSuperBall : SuperBall
     {
         // Initialise values
         timeToKill = 10f;
-        //speed = 5f;
+        // speed = 1f;
 
         startPosition = transform.position;
         Lanuch();

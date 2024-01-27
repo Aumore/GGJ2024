@@ -8,7 +8,7 @@ public class ShrinkSuperBall : SuperBall
     {
         // Initialise values
         timeToKill = 10f;
-        //speed = 5f;
+        // speed = 1f;
 
         startPosition = transform.position;
         Lanuch();
@@ -17,6 +17,7 @@ public class ShrinkSuperBall : SuperBall
     protected override void superBallAbility()
     {
         // Reverse the paddle
+        Debug.Log("ShrinkSuperBall ability");
         GameObject paddle = GameObject.Find("Paddle1"); // TODO: HARD CODED
         GameObject paddle2 = GameObject.Find("Paddle2");
         Paddle paddleScript = paddle.GetComponent<Paddle>();
