@@ -26,10 +26,14 @@ public class Paddle : MonoBehaviour
     public float aiDeadzone = 1f;
     public float aiMoveSpeedMultiplierMin = 0.5f, aiMoveSpeedMultiplierMax = 1.5f;
     protected int direction = 0;
+
+    public bool isShrinked;
+    public int shrinkTime;
     
     void Start()
     {
         startPosition = transform.position;
+        shrinkTime = 0;
     }
     
     // Update is called once per frame
@@ -52,6 +56,10 @@ public class Paddle : MonoBehaviour
 
         if (isReversed) {
             ReverseCountDown();
+        }
+
+        if (isShrinked) {
+            ShrinkCountDown();
         }
     }
 
@@ -94,6 +102,31 @@ public class Paddle : MonoBehaviour
         if (timeToStop < 0) {
             isReversed = false;
             timeToStop = 10; //hard code time for ReverseCountDown
+        }
+    }
+
+    protected void ShrinkCountDown()
+    {
+        if (shrinkTime == 0) {
+            ChangeSize();
+            shrinkTime = 1;
+        }
+
+        timeToStop -= Time.deltaTime;
+        if (timeToStop < 0) {
+            isShrinked = false;
+            timeToStop = 10; //hard code time for ReverseCountDown
+            ChangeSize();
+            shrinkTime = 0;
+        }
+    }
+
+    public void ChangeSize()
+    {
+        if (isShrinked){
+            transform.localScale /= 2;
+        } else if (!isShrinked) {
+            transform.localScale *= 2;
         }
     }
 
