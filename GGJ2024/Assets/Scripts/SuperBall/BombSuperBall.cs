@@ -8,7 +8,7 @@ public class BombSuperBall : SuperBall
     {
         // Initialise values
         timeToKill = 10f;
-        speed = 5f;
+        // speed = 5f;
 
         startPosition = transform.position;
         Lanuch();
@@ -17,6 +17,9 @@ public class BombSuperBall : SuperBall
     protected override void superBallAbility()
     {
         // Count down until exploreds
-        
+        GameObject ball = GameObject.Find("Ball");
+        Ball ballScript = ball.GetComponent<Ball>();
+        ballScript.isBomb = true;
+        Debug.Log("Bomb deployed");
     }
 }
