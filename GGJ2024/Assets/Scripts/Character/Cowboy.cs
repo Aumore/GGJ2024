@@ -9,6 +9,6 @@ public class Cowboy : Paddle
         // Shoot the ball
         GameObject ball = GameObject.Find("Ball");
         Ball ballScript = ball.GetComponent<Ball>();
-        Debug.Log("Cowboy ability called");       
+        Debug.Log("Cowboy ability called");
     }
 }
