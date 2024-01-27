@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
+    public static GameManager Instance { get; private set; }
 
     [Header("Ball")]
     public GameObject ball;
@@ -27,13 +27,14 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance)
+        if (Instance == null)
         {
-            Destroy(gameObject);
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
-            instance = this;
+            Destroy(gameObject);
         }
     }
 

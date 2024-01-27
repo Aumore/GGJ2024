@@ -11,19 +11,24 @@ public class Ball : MonoBehaviour
     public bool isBomb;
     public float timeToBoom;
     private SpriteRenderer spriteRenderer;
+    public CircleCollider2D BombCircle;
+    private BoxCollider2D BC2D;
 
     void Start()
     {
         startPosition = transform.position;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        BC2D = GetComponent<BoxCollider2D>();
+        BombCircle.enabled = false;
         Lanuch();
     }
 
     void Update()
     {
         currentPosition = transform.position;
-        
-        if (isBomb) {
+
+        if (isBomb)
+        {
             BombCountDown();
         }
     }
@@ -32,17 +37,26 @@ public class Ball : MonoBehaviour
     {
         timeToBoom -= Time.deltaTime;
         ChangeColor();
-        if (timeToBoom < 0) {
+        if (timeToBoom < 0)
+        {
             isBomb = false;
             timeToBoom = 10; // hard code time for ReverseCountDown
             ChangeColor();
             Explosion();
         }
     }
-    
+
     public void Explosion()
     {
-        // Goal
+        BombCircle.enabled = true;
+        BC2D.enabled = false;
+        // if (BombCircle.gameObject.CompareTag("Paddle1")) {
+        //     GameManager.Instance.Player2Scored();
+        // }
+        // else if (BombCircle.gameObject.CompareTag("Paddle2")){
+        //     GameManager.Instance.Player1Scored();
+        // }
+        Invoke("DisableExplosionCollider", 1.0f);
     }
 
     public void ChangeColor()
@@ -51,7 +65,8 @@ public class Ball : MonoBehaviour
         {
             // Change color to red
             spriteRenderer.color = Color.red;
-        } else if (spriteRenderer != null && !isBomb)
+        }
+        else if (spriteRenderer != null && !isBomb)
         {
             // Change color to white
             spriteRenderer.color = Color.white;
@@ -75,5 +90,35 @@ public class Ball : MonoBehaviour
     public Vector3 GetCurrentPosition()
     {
         return currentPosition;
+    }
+
+    private void DisableExplosionCollider()
+    {
+        BombCircle.enabled = false;
+        BC2D.enabled = true;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("!!!!!!!");
+        if (BombCircle.enabled)
+        {
+            Debug.Log("??????");
+            if (other.gameObject.CompareTag("Paddle1")) {
+                GameManager.Instance.Player2Scored();
+            }
+            else if (other.gameObject.CompareTag("Paddle2")){
+                GameManager.Instance.Player1Scored();
+            }
+        }
+
+        // if (other.gameObject.CompareTag("Paddle1"))
+        // {
+        //     GameManager.Instance.Player2Scored();
+        // }
+        // else if (other.gameObject.CompareTag("Paddle2"))
+        // {
+        //     GameManager.Instance.Player1Scored();
+        // }
     }
 }

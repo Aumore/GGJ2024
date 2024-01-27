@@ -30,7 +30,7 @@ public abstract class SuperBall : MonoBehaviour
     }
 
     // Should be triggered instead on enter when the superball collides with the ball
-    void OnCollisionEnter2D(Collision2D collision2D)
+    void OnTriggerEnter2D(Collider2D collision2D)
     {
         Debug.Log("Collision detected with " + collision2D.gameObject.name);
         if (collision2D.gameObject.CompareTag("Ball"))
