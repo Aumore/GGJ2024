@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cowboy : Character
+public class Cowboy : Paddle
 {
     protected override void CharacterAbility()
     {

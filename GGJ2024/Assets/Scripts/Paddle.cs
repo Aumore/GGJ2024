@@ -2,25 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum PaddleControl
+{
+    Player1,
+    Player2,
+    AI
+}
+
+
 public class Paddle : MonoBehaviour
 {
-    public bool isPlayer1;
-    public bool isPlayer2;
-    public bool isAI;
+    public PaddleControl controlState;
     public float speed;
     public Rigidbody2D rb;
     public Vector3 startPosition;
     public Ball ballScript;
     public bool isReversed;
-    private float movement;
-    private float moveSpeedMultiplier = 1f;
+    protected float movement;
+    protected float moveSpeedMultiplier = 1f;
 
     [Header("AI")]
     public float aiDeadzone = 1f;
     public float aiMoveSpeedMultiplierMin = 0.5f, aiMoveSpeedMultiplierMax = 1.5f;
-    private int direction = 0;
-
-    void Start()
+    protected int direction = 0;
+        void Start()
     {
         startPosition = transform.position;
     }
@@ -34,29 +39,35 @@ public class Paddle : MonoBehaviour
             direction = -1; 
         }
 
-        if (isPlayer1)
+        switch (controlState)
         {
-            movement = Input.GetAxisRaw("Vertical");
-            Move(movement*direction);
+            case PaddleControl.Player1:
+                HandlePlayerInput("Vertical");
+                break;
+            case PaddleControl.Player2:
+                HandlePlayerInput("Vertical2");
+                break;
+            case PaddleControl.AI:
+                MoveAI();
+                break;
         }
-        else if (isPlayer2)
-        {
-            movement = Input.GetAxisRaw("Vertical2");
-            Move(movement*direction);
-        }
-        else if (isAI)
-        {
-            MoveAI();
-        }
+
+        ActivateAbility();
     }
-    
+
+   private void HandlePlayerInput(string axis)
+    {
+        float movement = Input.GetAxisRaw(axis);
+        Move(movement);
+    }
+
     public void Reset()
     {
         rb.velocity = Vector2.zero;
         transform.position = startPosition;
     }
 
-    private void MoveAI()
+    protected void MoveAI()
     {
         Vector2 ballPos = ballScript.GetCurrentPosition();
 
@@ -73,10 +84,25 @@ public class Paddle : MonoBehaviour
         Move(direction);
     }
 
-    private void Move(float movement)
+    protected void Move(float movement)
     {
         Vector2 velo = rb.velocity;
         velo.y = speed * moveSpeedMultiplier * movement;
         rb.velocity = velo;
+    }
+
+    protected void ActivateAbility()
+    {
+        // activate ability when space is pressed
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            // Debug.Log("Ability activated");
+            CharacterAbility();
+        }
+    }
+
+    // A virtual method for the special ability
+    protected virtual void CharacterAbility()
+    {
+        // Default implementation or empty
     }
 }
