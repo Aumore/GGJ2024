@@ -20,5 +20,12 @@ public class Goal : MonoBehaviour
 
             }
         }
+
+        if (collision.gameObject.CompareTag("SuperBall"))
+        {
+            Destroy(collision.gameObject);
+        }
+
+
     }
 }

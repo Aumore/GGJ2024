@@ -14,7 +14,7 @@ public class ReverseSuperBall : SuperBall
         Lanuch();
     }
     
-    protected override void superPower()
+    protected override void superBallAbility()
     {
         // Reverse the paddle
         GameObject paddle = GameObject.Find("Paddle1");
