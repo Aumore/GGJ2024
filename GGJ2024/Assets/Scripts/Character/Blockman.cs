@@ -18,7 +18,9 @@ public class Blockman : Paddle
          // Calculate the position in front of the player
         Vector3 positionInFront = transform.position + transform.right * 2;
 
-        // Instantiate the block
-        Instantiate(blockPrefab, positionInFront, Quaternion.identity);
+        if (blockNumber < 5) {
+            Instantiate(blockPrefab, positionInFront, Quaternion.identity);
+            blockNumber++;
+        }
     }
 }
