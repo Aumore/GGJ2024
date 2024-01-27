@@ -1648,17 +1648,13 @@ PrefabInstance:
       propertyPath: speed
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 7236273237905781331, guid: 5f12894b44e01794d88f1b78551da040, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 7236273237905781330, guid: 5f12894b44e01794d88f1b78551da040, type: 3}
+      propertyPath: BombCircle
+      value: 
+      objectReference: {fileID: 6325568094408574212, guid: aaaf50274ca216e43827642acb9d646f, type: 3}
     - target: {fileID: 7236273237905781333, guid: 5f12894b44e01794d88f1b78551da040, type: 3}
       propertyPath: m_Name
       value: Ball
-      objectReference: {fileID: 0}
-    - target: {fileID: 7236273237905781333, guid: 5f12894b44e01794d88f1b78551da040, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f12894b44e01794d88f1b78551da040, type: 3}

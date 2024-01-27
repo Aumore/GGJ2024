@@ -11,14 +11,13 @@ public class Ball : MonoBehaviour
     public bool isBomb;
     public float timeToBoom;
     private SpriteRenderer spriteRenderer;
-    public CircleCollider2D BombCircle;
     public GameObject BombCirclePrefeb;
-
+    public Sprite BallSprite;
+    public Sprite BombSprite;
     void Start()
     {
         startPosition = transform.position;
         spriteRenderer = GetComponent<SpriteRenderer>();
-        BombCircle.enabled = false;
         Lanuch();
     }
 
@@ -56,12 +55,12 @@ public class Ball : MonoBehaviour
         if (spriteRenderer != null && isBomb)
         {
             // Change color to red
-            spriteRenderer.color = Color.red;
+            spriteRenderer.sprite = BombSprite;
         }
         else if (spriteRenderer != null && !isBomb)
         {
             // Change color to white
-            spriteRenderer.color = Color.white;
+            spriteRenderer.sprite = BallSprite;
         }
     }
 

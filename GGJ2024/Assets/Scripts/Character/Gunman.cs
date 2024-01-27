@@ -17,7 +17,7 @@ public class Gunman : Paddle
     protected void ShootBall()
     {
         // Calculate the position in front of the player
-        Vector3 positionInFront = transform.position + transform.right * 2;
+        Vector3 positionInFront = transform.position + (transform.right * 2 * -1);
 
         // Instantiate the ball
         if (bulletNumber >=0 ) {
