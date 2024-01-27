@@ -167,6 +167,7 @@ MonoBehaviour:
   aiMoveSpeedMultiplierMax: 1.5
   isShrinked: 0
   shrinkTime: 0
+  isHit: 0
 --- !u!50 &168652127
 Rigidbody2D:
   serializedVersion: 4
@@ -187,7 +188,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 5
+  m_Constraints: 6
 --- !u!61 &168652128
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -986,12 +987,12 @@ GameObject:
   - component: {fileID: 776595186}
   - component: {fileID: 776595190}
   m_Layer: 0
-  m_Name: CBPaddle
+  m_Name: Gunman
   m_TagString: Paddle1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!50 &776595186
 Rigidbody2D:
   serializedVersion: 4
@@ -1115,7 +1116,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 776595184}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 270962ad869573949b1388be61bba8c1, type: 3}
+  m_Script: {fileID: 11500000, guid: 9bc909cd564d9124d8927202cd97438d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   controlState: 0
@@ -1124,12 +1125,15 @@ MonoBehaviour:
   startPosition: {x: 0, y: 0, z: 0}
   ballScript: {fileID: 2118809806}
   isReversed: 0
-  timeToStop: 10
+  timeToStop: 0
   aiDeadzone: 1
   aiMoveSpeedMultiplierMin: 0.5
   aiMoveSpeedMultiplierMax: 1.5
   isShrinked: 0
   shrinkTime: 0
+  isHit: 0
+  bulletNumber: 5
+  bulletPrefab: {fileID: 6051908487087654223, guid: 335b16a05aa53f54c9780d3fdd64e757, type: 3}
 --- !u!1 &1228508341
 GameObject:
   m_ObjectHideFlags: 0
@@ -1539,7 +1543,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1857232816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1564,6 +1568,7 @@ MonoBehaviour:
   aiMoveSpeedMultiplierMax: 1.5
   isShrinked: 0
   shrinkTime: 0
+  isHit: 0
   blockNumber: 0
   blockPrefab: {fileID: 5266934075338648582, guid: 7bb5f305ed4499b43887a1dae1db6a9a, type: 3}
 --- !u!50 &1857232817
@@ -1725,7 +1730,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ball: {fileID: 2118809801}
-  player1Paddle: {fileID: 2003474980}
+  player1Paddle: {fileID: 776595184}
   player1Goal: {fileID: 195523523}
   player2Paddle: {fileID: 168652125}
   player2Goal: {fileID: 683636554}
@@ -1883,10 +1888,13 @@ MonoBehaviour:
   startPosition: {x: 0, y: 0, z: 0}
   ballScript: {fileID: 2118809806}
   isReversed: 0
+  movement: 0
+  moveSpeedMultiplier: 1
   timeToStop: 0
   aiDeadzone: 1
   aiMoveSpeedMultiplierMin: 0.5
   aiMoveSpeedMultiplierMax: 1.5
+  direction: 0
   isShrinked: 0
   shrinkTime: 0
 --- !u!1 &2118809801 stripped
@@ -1970,7 +1978,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7236273237905781333, guid: 5f12894b44e01794d88f1b78551da040, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f12894b44e01794d88f1b78551da040, type: 3}
