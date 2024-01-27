@@ -33,12 +33,6 @@ public class Paddle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        direction = 1;
-        if (isReversed) {
-            Debug.Log("Reversed");
-            direction = -1; 
-        }
-
         switch (controlState)
         {
             case PaddleControl.Player1:
@@ -58,7 +52,11 @@ public class Paddle : MonoBehaviour
    private void HandlePlayerInput(string axis)
     {
         float movement = Input.GetAxisRaw(axis);
-        Move(movement);
+        if (isReversed) {
+            Move(-1 * movement);
+        } else {
+            Move(movement);
+        }
     }
 
     public void Reset()
