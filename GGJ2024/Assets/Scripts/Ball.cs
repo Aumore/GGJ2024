@@ -64,7 +64,7 @@ public class Ball : MonoBehaviour
         }
     }
 
-    private void Lanuch()
+    public void Lanuch()
     {
         float x = Random.Range(0, 2) == 0 ? -1 : 1;
         float y = Random.Range(0, 2) == 0 ? -1 : 1;
