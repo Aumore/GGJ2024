@@ -136,5 +136,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24770a5ecad67f546a2ae5c3df85e469, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballScript: {fileID: 0}
-  timeToKill: 10
+  ballScript: {fileID: 7236273237905781330, guid: 5f12894b44e01794d88f1b78551da040, type: 3}

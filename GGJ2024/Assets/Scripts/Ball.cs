@@ -12,13 +12,12 @@ public class Ball : MonoBehaviour
     public float timeToBoom;
     private SpriteRenderer spriteRenderer;
     public CircleCollider2D BombCircle;
-    private BoxCollider2D BC2D;
+    public GameObject BombCirclePrefeb;
 
     void Start()
     {
         startPosition = transform.position;
         spriteRenderer = GetComponent<SpriteRenderer>();
-        BC2D = GetComponent<BoxCollider2D>();
         BombCircle.enabled = false;
         Lanuch();
     }
@@ -48,15 +47,8 @@ public class Ball : MonoBehaviour
 
     public void Explosion()
     {
-        BombCircle.enabled = true;
-        BC2D.enabled = false;
-        // if (BombCircle.gameObject.CompareTag("Paddle1")) {
-        //     GameManager.Instance.Player2Scored();
-        // }
-        // else if (BombCircle.gameObject.CompareTag("Paddle2")){
-        //     GameManager.Instance.Player1Scored();
-        // }
-        Invoke("DisableExplosionCollider", 1.0f);
+        Instantiate(BombCirclePrefeb, currentPosition, Quaternion.identity);
+        gameObject.SetActive(false);
     }
 
     public void ChangeColor()
@@ -90,35 +82,5 @@ public class Ball : MonoBehaviour
     public Vector3 GetCurrentPosition()
     {
         return currentPosition;
-    }
-
-    private void DisableExplosionCollider()
-    {
-        BombCircle.enabled = false;
-        BC2D.enabled = true;
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        Debug.Log("!!!!!!!");
-        if (BombCircle.enabled)
-        {
-            Debug.Log("??????");
-            if (other.gameObject.CompareTag("Paddle1")) {
-                GameManager.Instance.Player2Scored();
-            }
-            else if (other.gameObject.CompareTag("Paddle2")){
-                GameManager.Instance.Player1Scored();
-            }
-        }
-
-        // if (other.gameObject.CompareTag("Paddle1"))
-        // {
-        //     GameManager.Instance.Player2Scored();
-        // }
-        // else if (other.gameObject.CompareTag("Paddle2"))
-        // {
-        //     GameManager.Instance.Player1Scored();
-        // }
     }
 }

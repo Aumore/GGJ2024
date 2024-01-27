@@ -5,7 +5,7 @@ using UnityEngine;
 public class BombCircle : MonoBehaviour
 {
     public Ball ballScript;
-    public float timeToKill;
+    private float timeToKill;
     bool time_check()
     {
         return timeToKill > 0;
@@ -25,6 +25,7 @@ public class BombCircle : MonoBehaviour
         if (!time_check())
         {
             Destroy(gameObject);
+            GameManager.Instance.ResetPostion();
         }
     }
 
@@ -33,10 +34,12 @@ public class BombCircle : MonoBehaviour
         if (other.gameObject.CompareTag("Paddle1"))
         {
             GameManager.Instance.Player2Scored();
+            Destroy(gameObject);
         }
         else if (other.gameObject.CompareTag("Paddle2"))
         {
             GameManager.Instance.Player1Scored();
+            Destroy(gameObject);
         }
     }
 }
