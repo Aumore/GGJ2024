@@ -25,7 +25,8 @@ public class Paddle : MonoBehaviour
     public float aiDeadzone = 1f;
     public float aiMoveSpeedMultiplierMin = 0.5f, aiMoveSpeedMultiplierMax = 1.5f;
     protected int direction = 0;
-        void Start()
+    
+    void Start()
     {
         startPosition = transform.position;
     }
@@ -80,6 +81,14 @@ public class Paddle : MonoBehaviour
         }
 
         Move(direction);
+    }
+
+    protected void ReverseCountDown(int timeToStop)
+    {
+        timeToStop--;
+        if (timeToStop == 0) {
+            isReversed = false;
+        }
     }
 
     protected void Move(float movement)
