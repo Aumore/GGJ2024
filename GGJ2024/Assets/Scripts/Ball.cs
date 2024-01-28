@@ -92,7 +92,8 @@ public class Ball : MonoBehaviour
     {
         if (!other.gameObject.CompareTag("BottomLine"))
         {
-            AudioSource.PlayClipAtPoint(bounceSound,transform.position);
+            // AudioSource.PlayClipAtPoint(bounceSound,transform.position);
+            ballAudio.Play();
         }
     }
 }
