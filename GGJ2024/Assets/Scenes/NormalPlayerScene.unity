@@ -1280,6 +1280,7 @@ MonoBehaviour:
   - {fileID: 2952480307185770981, guid: 9e23342f4bdf7b7458e970fddfe8d205, type: 3}
   - {fileID: 868673707363746113, guid: e94fef3605947704885c7e8fcbf0eb70, type: 3}
   - {fileID: 4132090662872172437, guid: d52fb40153debdb42ab3a6d82af409f9, type: 3}
+  - {fileID: 12381959812857231, guid: dee46b5077e347641a411dda9eec768f, type: 3}
   spawnRadius: 5
   spawnInterval: 15
 --- !u!4 &1408750017
