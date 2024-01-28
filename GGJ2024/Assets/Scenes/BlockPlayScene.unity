@@ -1702,8 +1702,8 @@ MonoBehaviour:
   player2Goal: {fileID: 683636554}
   Player1Text: {fileID: 1380440693}
   Player2Text: {fileID: 647785926}
-  PlayerWinPanel: {fileID: 1927692024}
-  AIWinPanel: {fileID: 645685892}
+  PlayerWinPanel: {fileID: 645685892}
+  AIWinPanel: {fileID: 1927692024}
 --- !u!1 &1927692024 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7144790869582059409, guid: adf770136eebdcb4c91849f191fbc401, type: 3}
