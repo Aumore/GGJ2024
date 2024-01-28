@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1180711089420900657
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1180711089420900658}
+  - component: {fileID: 1180711089420900659}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1180711089420900658
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180711089420900657}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1180711089420900659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180711089420900657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24cb376652c672c4298bce475759f394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 7236273237905781333, guid: 5f12894b44e01794d88f1b78551da040, type: 3}
+  player1Paddle: {fileID: 1028035591822726110, guid: 19f4f57aef7678545879c743e8915d47, type: 3}
+  player1Goal: {fileID: 1278403990731919489, guid: b6ae49ebfec1cee46847432f6aa8c677, type: 3}
+  player2Paddle: {fileID: 1840113046516285900, guid: 592256463a71e6e4cba89c06a1ef8c6c, type: 3}
+  player2Goal: {fileID: 2651513566336205754, guid: 28da83293912c33449328ae6b1eceb16, type: 3}
+  Player1Text: {fileID: 5378191440603175675, guid: 4f999803bfb07064d9192690589b7595, type: 3}
+  Player2Text: {fileID: 5730372978104782047, guid: e43b542648a302446ba95009a8e1dd46, type: 3}
+  PlayerWinPanel: {fileID: 3163397505073268757, guid: 3f08e1a93af6e17409bdf518cebee905, type: 3}
+  AIWinPanel: {fileID: 7144790869582059409, guid: adf770136eebdcb4c91849f191fbc401, type: 3}

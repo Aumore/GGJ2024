@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -24,17 +25,39 @@ public class GameManager : MonoBehaviour
 
     private int player1Score;
     private int player2Score;
+    public GameObject PlayerWinPanel;
+    public GameObject AIWinPanel;
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
+        // if (Instance == null)
+        // {
+        //     Instance = this;
+        //     DontDestroyOnLoad(gameObject);
+        // }
+        // else
+        // {
+        //     Destroy(gameObject);
+        // }
+    }
+
+    void Start() {
+        PlayerWinPanel.SetActive(false);
+        AIWinPanel.SetActive(false);
+    }
+
+    void Update() {
+        if (player1Score == 5) {
+            Time.timeScale = 0;
+            PlayerWinPanel.SetActive(true);
         }
-        else
-        {
-            Destroy(gameObject);
+        else if (player2Score == 5) {
+            Time.timeScale = 0;
+            AIWinPanel.SetActive(true);
+        }
+
+        if (!PlayerWinPanel.activeSelf && !AIWinPanel.activeSelf) {
+            Time.timeScale = 1;
         }
     }
 
