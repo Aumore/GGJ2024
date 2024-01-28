@@ -6,6 +6,8 @@ public class BombCircle : MonoBehaviour
 {
     public Ball ballScript;
     private float timeToKill;
+    public AudioClip boomSound;
+    private AudioSource boomAudio;
     bool time_check()
     {
         return timeToKill > 0;
@@ -24,6 +26,7 @@ public class BombCircle : MonoBehaviour
         timeToKill -= Time.deltaTime;
         if (!time_check())
         {
+            AudioSource.PlayClipAtPoint(boomSound,transform.position);
             Destroy(gameObject);
             GameManager.Instance.ResetPostion();
         }
@@ -31,6 +34,7 @@ public class BombCircle : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+                    AudioSource.PlayClipAtPoint(boomSound,transform.position);
         if (other.gameObject.CompareTag("Paddle1"))
         {
             GameManager.Instance.Player2Scored();

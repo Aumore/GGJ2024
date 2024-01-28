@@ -14,10 +14,14 @@ public class Ball : MonoBehaviour
     public GameObject BombCirclePrefeb;
     public Sprite BallSprite;
     public Sprite BombSprite;
+    public AudioClip bounceSound;
+    private AudioSource ballAudio;
+
     void Start()
     {
         startPosition = transform.position;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        ballAudio = GetComponent<AudioSource>();
         Lanuch();
     }
 
@@ -82,5 +86,13 @@ public class Ball : MonoBehaviour
     public Vector3 GetCurrentPosition()
     {
         return currentPosition;
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (!other.gameObject.CompareTag("BottomLine"))
+        {
+            AudioSource.PlayClipAtPoint(bounceSound,transform.position);
+        }
     }
 }
