@@ -12,9 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/NormalPlayerScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/BlockPlayScene.unity
-    guid: 01d93727f99bebc4cb3bb7ee5462126c
-  - enabled: 1
     path: Assets/Scenes/GunPlayScene.unity
     guid: b6e385dbb0872ed49afb030aa9017c1d
+  - enabled: 1
+    path: Assets/Scenes/BlockPlayScene.unity
+    guid: 01d93727f99bebc4cb3bb7ee5462126c
   m_configObjects: {}
